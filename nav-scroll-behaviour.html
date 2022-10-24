@@ -1,0 +1,83 @@
+<style>
+/*=========================
+=== Top Navigation Menu ===
+=========================*/
+.top-head {
+	color: #f0f0f0;
+	left: 0;
+	padding: 1rem 0;
+	position: fixed;
+	right: 0;
+	transition: padding .5s;
+	z-index: 2;
+}
+
+.top-head > .container {
+	display: flex;
+}
+
+.navigation {
+	align-items: center;
+	display: flex;
+	flex-grow: 1;
+	gap: 1rem;
+}
+
+.nav-link {
+	display: flex;
+	flex-direction: row;
+	gap: .125rem;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-link-item {
+	flex-shrink: 0;
+	list-style: none;
+}
+
+.nav-link-item a {
+	display: block;
+	font-size: .75rem;
+	font-weight: 700;
+	letter-spacing: .05rem;
+	padding: 0.375rem 0.875rem;
+	text-transform: uppercase;
+}
+
+.nav-link-item :is(a:focus, a:hover) {
+	text-decoration: .125rem underline;
+}
+</style>
+<nav class="top-head">
+	<div class="container">
+		<div class="navigation">
+			<ul class="nav-link">
+				<li class="nav-link-item"><a href="./menu/">Menu</a></li>
+				<li class="nav-link-item"><a href="./reservation/">Reservation</a></li>
+				<li class="nav-link-item"><a href="./news/">News</a></li>
+			</ul>
+			<a class="home-link" href=".">Nusantara Café</a>
+			<ul class="nav-link">
+				<li class="nav-link-item"><a href="./gallery/">Gallery</a></li>
+				<li class="nav-link-item"><a href="./about/">About Us</a></li>
+				<li class="nav-link-item"><a href="./contact/">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<script>
+if (document.querySelector(".top-head")) {
+	// Menu style when scrolling
+	const topHead = document.querySelector(".top-head");
+	const topNavigation = document.querySelector(".navigation");
+	window.onscroll = function(event) {
+		if (window.pageYOffset > 100) {
+			topHead.style.backgroundColor = "rgba(179, 102, 30, " + (window.pageYOffset - 50) / 250 + ")";
+			topHead.style.padding = ".25rem 0";
+		} else {
+			topHead.removeAttribute("style");
+		}
+	}
+}
+</script>
