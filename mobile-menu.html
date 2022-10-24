@@ -1,0 +1,138 @@
+<style>
+.header {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1020;
+}
+
+.navigation {
+	margin: 0 auto;
+	max-width: var(--max-width);
+	padding: .5rem;
+}
+
+.navigation a:focus,
+.navigation a:hover {
+	text-decoration: .125rem underline;
+}
+
+.top-menu {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.logo {
+	align-items: center;
+	display: flex;
+	font-family: "Krafton";
+	font-size: 2rem;
+	font-weight: 600;
+	line-height: 1;
+	padding: 0 .25rem;
+}
+
+#menu-icon {
+	align-items: center;
+    cursor: pointer;
+    display: flex;
+}
+
+.hamburger {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    height: 44px;
+    justify-content: center;
+    width: 44px;
+}
+
+.hamburger:active {
+	background-color: #3e3e3e;
+}
+
+.bar {
+    background-color: #dedede;
+    border-radius: 5rem;
+    height: 4px;
+    width: 20px;
+}
+
+#main-menu {
+    align-items: center;
+	background-color: #000;
+    flex-basis: 100%;
+	font-size: 1.25rem;
+    overflow: hidden;
+    max-height: 0;
+}
+
+#main-menu.hidden {
+	max-height: 0;
+	transition: max-height .15s ease-out;
+}
+
+#main-menu.show {
+	max-height: 200px;
+	transition: max-height .15s ease-in;
+}
+
+#main-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-align: center;
+    width: 100%;
+}
+
+#main-menu ul li a {
+    display: block;
+	font-family: "Krafton";
+	padding: 1rem .5rem;
+    white-space: nowrap;
+}
+
+#main-menu ul li a:focus,
+#main-menu ul li a:hover {
+	background-color: #3e3e3e;
+}
+</style>
+<header class="header">
+	<nav class="navigation">
+		<div class="top-menu">
+			<a href="#top" class="logo">One Podcast</a>
+			<div id="menu-icon">
+				<div class="hamburger">
+					<div class="bar"></div>
+					<div class="bar"></div>
+					<div class="bar"></div>
+				</div>
+			</div>
+			<div id="main-menu" class="standby">
+				<ul>
+					<li><a href="#about">About Us</a></li>
+					<li><a href="#awards">Awards</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+<script>
+// Mobile Menu
+const menuIcon = document.getElementById("menu-icon");
+const menuBox = document.getElementById("main-menu");
+document.addEventListener("click", function(event) {
+	const hasMenuShow = menuBox.classList.contains("show");
+	const isClickIcon = menuIcon.contains(event.target);
+	const isClickMenu = menuBox.contains(event.target);
+	if (!hasMenuShow && isClickIcon || isClickMenu) {
+		menuBox.classList = "show";
+	} else if (hasMenuShow && !isClickMenu) {
+		menuBox.classList = "hidden";
+	}
+});
+</script>
