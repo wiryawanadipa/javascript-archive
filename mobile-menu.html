@@ -99,6 +99,44 @@
 #main-menu ul li a:hover {
 	background-color: #3e3e3e;
 }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.navigation {
+		padding: 1rem;
+	}
+
+	#menu-icon {
+		display: none;
+	}
+
+	#main-menu {
+		background-color: unset;
+		flex-basis: auto;
+		max-height: 100%;
+	}
+
+	#main-menu.hidden {
+		max-height: unset;
+		transition: none;
+	}
+
+	#main-menu ul {
+		flex-direction: row;
+		gap: 1rem;
+		width: auto;
+	}
+
+	#main-menu ul li a {
+		color: unset;
+		padding: 0.5rem;
+	}
+
+	#main-menu ul li a:focus,
+	#main-menu ul li a:hover {
+		background-color: unset;
+	}
+}
 </style>
 <header class="header">
 	<nav class="navigation">

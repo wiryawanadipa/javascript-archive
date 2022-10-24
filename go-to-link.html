@@ -1,0 +1,15 @@
+<script>
+// Menu Smooth Scroll
+topNavigation.querySelectorAll('a[href^="#"]').forEach(anchor => {
+	anchor.addEventListener("click", function(event) {
+		event.preventDefault();
+		document.querySelector(this.getAttribute('href')).scrollIntoView({
+			behavior: 'smooth'
+		});
+		menuBox.classList = "hidden";
+		setTimeout(e => {
+			menuBox.classList = "hidden";
+		}, 50);
+	});
+});
+</script>

@@ -1,0 +1,54 @@
+<section id="top">
+	<header class="header">
+		<nav class="navigation">
+			<div class="top-menu">
+				<a href="#top" class="logo">One Podcast</a>
+				<div id="menu-icon">
+					<div class="hamburger">
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+					</div>
+				</div>
+				<div id="main-menu" class="standby">
+					<ul>
+						<li><a href="#about">About Us</a></li>
+						<li><a href="#awards">Awards</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="welcome">
+		<div class="welcome-box">
+			<span class="podcast-text">NO 1</span>
+			<span class="podcast-text">Football Podcast</span>
+			<span class="podcast-text">In Asia</span>
+			<a href="." class="podcast-link"><i class="fa-brands fa-spotify"></i>Listen on Spotify</a>
+		</div>
+	</div>
+</section>
+<script>
+// Menu Background Changer When Scrolling
+const topHeader = document.querySelector(".header");
+const topNavigation = document.querySelector(".navigation");
+topHeader.style.backgroundColor = "transparent";
+window.onscroll = function(event) {
+	topHeader.style.backgroundColor = "rgba(0, 0, 0, " + window.pageYOffset / 500 + ")";
+	if (window.pageYOffset > 10) {
+		topNavigation.classList = "navigation shrink";
+	} else {
+		topNavigation.classList = "navigation";
+	}
+}
+// Calculate Menu Height
+const welcomeElement = document.querySelector(".welcome");
+const boxWelcome = document.querySelector(".welcome-box");
+let resizeObserver = new ResizeObserver(() => {
+	const heightMenu = topHeader.offsetHeight;
+	welcomeElement.style.paddingTop = heightMenu + "px";
+	boxWelcome.style.marginTop = "-" + heightMenu/1.25 + "px";
+});
+resizeObserver.observe(topHeader);
+</script>
